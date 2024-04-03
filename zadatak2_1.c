@@ -29,14 +29,8 @@
 		bcm2835_delay(10);
 		}while(b[1] < 0xff);
 
+		if(b[1] == 0xff) b[1] = 0x00;
 
-
-		do{
-		b[1]=b[1]-1;
- 		bcm2835_i2c_write((const char *)&b,2);
-		printf("Izlaz DA konvertora: %d \n",b[1]);
-		bcm2835_delay(10);
-		}while(b[1] > 0x00);
 
 	 } 
 	 bcm2835_i2c_end(); 
